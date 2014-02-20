@@ -2,16 +2,16 @@
 set -e
 set -u
 name=storm
-version=0.8.2
+version=0.9.0.1
 description="Storm is a distributed realtime computation system. Similar to how Hadoop provides a set of general primitives
 for doing batch processing, Storm provides a set of general primitives for doing realtime computation. Storm is simple, can
 be used with any programming language, is used by many companies, and is a lot of fun to use!"
 url="http://storm-project.net"
 arch="all"
 section="misc"
-package_version=""
+package_version="~2"
 src_package="storm-${version}.zip"
-download_url="https://dl.dropbox.com/u/133901206/${src_package}"
+download_url="https://dl.dropboxusercontent.com/s/dj86w8ojecgsam7/storm-0.9.0.1.zip"
 origdir="$(pwd)"
 storm_root_dir=/usr/lib/storm
 #use old debian init.d scripts or ubuntu upstart
@@ -26,7 +26,7 @@ fi
 #_ MAIN _#
 rm -rf ${name}*.deb
 if [[ ! -f "${src_package}" ]]; then
-  wget ${download_url}
+  curl -LO ${download_url}
 fi
 mkdir -p tmp && pushd tmp
 rm -rf storm
