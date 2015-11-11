@@ -1,7 +1,7 @@
 # /etc/default/storm-nimbus
 
 #_ START? _#
-ENABLE="no"
+ENABLE="yes"
 
 #_ NIMBUS _#
 STORM_NIMBUS_JVM_MEMORY="768m"

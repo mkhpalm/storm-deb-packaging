@@ -1,7 +1,7 @@
 # /etc/default/storm-ui
 
 #_ START? _#
-ENABLE="no"
+ENABLE="yes"
 
 #_ UI _#
 STORM_UI_JVM_MEMORY="768m"

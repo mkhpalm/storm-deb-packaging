@@ -1,7 +1,7 @@
 # /etc/default/storm-supervisor
 
 #_ START? _#
-ENABLE="no"
+ENABLE="yes"
 
 #_ SUPERVISOR _#
 STORM_SUPERVISOR_JVM_MEMORY="1024m"
