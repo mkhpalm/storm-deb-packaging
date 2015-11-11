@@ -41,6 +41,7 @@ else
   mkdir -p build/etc/init
 fi
 mkdir -p build/var/log/storm
+mkdir -p build/var/lib/storm
 
 unzip ${origdir}/storm-${version}.zip
 rm -rf storm-${version}/logs
@@ -58,6 +59,7 @@ else
   cp ${origdir}/storm-nimbus.conf ${origdir}/storm-supervisor.conf ${origdir}/storm-ui.conf ${origdir}/storm-drpc.conf etc/init
 fi 
 
+
 #_ MAKE DEBIAN _#
 fpm -t deb \
     -n ${name} \
@@ -72,7 +74,7 @@ fpm -t deb \
     --after-install ${origdir}/after_install.sh \
     --after-remove ${origdir}/after_remove.sh \
     --prefix=/ \
-    -d "libzmq0 >= 3.2.2" -d "libjzmq >= 2.1.0" -d "unzip" \
+    -d "libzmq3 >= 3.1.3" -d "libjzmq >= 2.1.0" -d "unzip" \
     -s dir \
     -- .
 mv storm*.deb ${origdir}
