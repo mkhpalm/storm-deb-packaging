@@ -10,8 +10,8 @@ url="http://storm.apache.org/"
 arch="all"
 section="misc"
 package_version="~3"
-src_package="storm-${version}.zip"
-download_url="http://mirror.symnds.com/software/Apache/storm/apache-storm-0.10.0/apache-storm-0.10.0.tar.gz"
+src_package="apache-storm-${version}.zip"
+download_url="http://mirror.symnds.com/software/Apache/storm/apache-storm-0.10.0/apache-storm-0.10.0.zip"
 origdir="$(pwd)"
 storm_root_dir=/usr/lib/storm
 #use old debian init.d scripts or ubuntu upstart
