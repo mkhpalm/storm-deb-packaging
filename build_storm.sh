@@ -9,9 +9,9 @@ be used with any programming language, is used by many companies, and is a lot o
 url="http://storm.apache.org/"
 arch="all"
 section="misc"
-package_version="~2"
-src_package="apache-storm-${version}.zip"
-download_url="http://apache.mirrors.lucidnetworks.net/storm/apache-storm-0.10.0/apache-storm-0.10.0.zip"
+package_version="~3"
+src_package="storm-${version}.zip"
+download_url="http://mirror.symnds.com/software/Apache/storm/apache-storm-0.10.0/apache-storm-0.10.0.tar.gz"
 origdir="$(pwd)"
 storm_root_dir=/usr/lib/storm
 #use old debian init.d scripts or ubuntu upstart
@@ -50,7 +50,7 @@ rm -rf apache-storm-${version}/conf
 cp -R apache-storm-${version}/* build${storm_root_dir}
 
 cd build
-cp ${origdir}/storm ${origdir}/storm-logviewer ${origdir}/storm-nimbus ${origdir}/storm-supervisor ${origdir}/storm-ui ${origdir}/storm-drpc etc/default
+cp ${origdir}/storm ${origdir}/storm-nimbus ${origdir}/storm-supervisor ${origdir}/storm-ui ${origdir}/storm-drpc etc/default
 cp ${origdir}/storm.yaml etc/storm
 cp ${origdir}/storm.log.properties etc/storm
 if [ $dist == "debian" ]; then
