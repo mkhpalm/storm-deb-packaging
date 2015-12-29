@@ -16,3 +16,4 @@ nimbus.host: "localhost"
 # drpc.servers:
 #     - "server1"
 #     - "server2"
+storm.local.dir: "/var/lib/storm"
