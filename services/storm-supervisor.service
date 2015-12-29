@@ -1,0 +1,21 @@
+[Unit]
+Description=Storm Supervisor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/storm
+EnvironmentFile=/etc/default/storm-supervisor
+Environment=CLASSPATH=/usr/lib/storm/lib/asm-4.0.jar:/usr/lib/storm/lib/clojure-1.6.0.jar:/usr/lib/storm/lib/disruptor-2.10.4.jar:/usr/lib/storm/lib/hadoop-auth-2.4.0.jar:/usr/lib/storm/lib/kryo-2.21.jar:/usr/lib/storm/lib/log4j-api-2.1.jar:/usr/lib/storm/lib/log4j-core-2.1.jar:/usr/lib/storm/lib/log4j-over-slf4j-1.6.6.jar:/usr/lib/storm/lib/log4j-slf4j-impl-2.1.jar:/usr/lib/storm/lib/minlog-1.2.jar:/usr/lib/storm/lib/reflectasm-1.07-shaded.jar:/usr/lib/storm/lib/servlet-api-2.5.jar:/usr/lib/storm/lib/slf4j-api-1.7.7.jar:/usr/lib/storm/lib/storm-core-0.10.0.jar:/usr/lib/storm/lib/storm-0.10.0.jar:/etc/storm:
+User=storm
+Group=storm
+ExecStart=/usr/bin/java -cp ${CLASSPATH} -Xms${STORM_SUPERVISOR_JVM_MEMORY} -Xmx${STORM_SUPERVISOR_JVM_MEMORY} -Djava.library.path="${JAVA_LIBRARY_PATH}" -Dstorm.options="${STORM_OPTIONS}" -Dstorm.home=${STORM_HOME} ${STORM_SUPERVISOR_JVM_OPTS} backtype.storm.daemon.supervisor
+Restart=always
+StandardOutput=null
+StandardError=journal
+SuccessExitStatus=143
+LimitNOFILE=65535
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
