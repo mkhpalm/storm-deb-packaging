@@ -9,7 +9,7 @@ be used with any programming language, is used by many companies, and is a lot o
 url="http://storm.apache.org/"
 arch="all"
 section="misc"
-package_version="~3"
+package_version="~4"
 src_package="apache-storm-${version}.zip"
 download_url="http://mirror.symnds.com/software/Apache/storm/apache-storm-0.10.0/apache-storm-0.10.0.zip"
 origdir="$(pwd)"
@@ -37,6 +37,7 @@ mkdir -p build/etc/default
 mkdir -p build/etc/storm
 if [ $dist == "debian" ]; then
   mkdir -p build/etc/init.d
+  mkdir -p build/usr/lib/systemd/system/
 else
   mkdir -p build/etc/init
 fi
@@ -55,6 +56,7 @@ cp ${origdir}/storm.yaml etc/storm
 cp ${origdir}/storm.log.properties etc/storm
 if [ $dist == "debian" ]; then
   cp ${origdir}/init.d/storm-nimbus ${origdir}/init.d/storm-logviewer ${origdir}/init.d/storm-supervisor ${origdir}/init.d/storm-ui ${origdir}/init.d/storm-drpc etc/init.d
+  cp ${origdir}/services/*.service usr/lib/systemd/system/
 else
   cp ${origdir}/storm-nimbus.conf ${origdir}/storm-logviewer.conf ${origdir}/storm-supervisor.conf ${origdir}/storm-ui.conf ${origdir}/storm-drpc.conf etc/init
 fi 
